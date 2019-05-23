@@ -87,7 +87,9 @@ Options
 * `--packages [list]` restrict output to the packages (package@version) in the semicolon-seperated list
 * `--excludePackages [list]` restrict output to the packages (package@version) not in the semicolon-seperated list
 * `--excludePrivatePackages` restrict output to not include any package marked as private
-* `--direct look for direct dependencies only`
+* `--direct` look for direct dependencies only
+* `--markdown` to generate markdown output, either standard or using customPath
+* `--templatePath [filepath]` to specify EJS template file
 
 Exclusions
 ----------
@@ -135,6 +137,33 @@ The available items are the following:
 
 You can also give default values for each item.
 See an example in [customFormatExample.json](customFormatExample.json).
+
+Template format
+---------------
+
+The `--templatePath` option can be used to generate arbitrary output formats 
+using the [EJS javascript templating engine](https://ejs.co).
+
+Create an EJS template file and then pass the name of the file as `--templatePath example.ejs`.
+
+For example `acknowledgements.ejs` might look like
+```
+# Acknolwedgements and Third Party Licenses
+
+<% Object.keys(licenses).forEach(function(license) { %>
+## <%- license %> 
+
+* **License(s):** <%- licenses[license].licenses %>
+* **Author:** <%- licenses[license].publisher %> ( <%- licenses[license].email %> )
+* **Repository:** <%- licenses[license].repository %>
+* **Url:** <%- licenses[license].url %>
+
+<%- licenses[license].licenseText %>
+
+<% }); %>
+```
+
+Then run `license-checker --templatePath acknowledgements.ejs > ACKNOWLEDGEMENTS.md`.
 
 Requiring
 ---------
