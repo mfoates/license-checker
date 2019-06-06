@@ -90,6 +90,8 @@ Options
 * `--direct` look for direct dependencies only
 * `--markdown` to generate markdown output, either standard or using customPath
 * `--templatePath [filepath]` to specify EJS template file
+* `--escapeJinja` escape template delimters used by jinja2 with ascii html entities
+* `--escapeAnsibleRaw` surrounds license with with {% raw %} ... {% endraw %}
 
 Exclusions
 ----------
