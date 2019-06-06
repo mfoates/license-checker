@@ -39,6 +39,8 @@ if (args.help) {
         '   --excludePrivatePackages restrict output to not include any package marked as private',
         '   --markdown to generate markdown output, either standard or using customPath',
         '   --templatePath [filepath] to specify EJS template file',
+        '   --escapeJinja escape template delimters used by jinja2 with ascii html entities',
+        '   --escapeAnsibleRaw surrounds license with with {% raw %} ... {% endraw %}',
         '',
         '   --version The current version',
         '   --help  The text you are reading right now :)',
