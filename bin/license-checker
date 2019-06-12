@@ -41,6 +41,8 @@ if (args.help) {
         '   --templatePath [filepath] to specify EJS template file',
         '   --escapeJinja escape template delimters used by jinja2 with ascii html entities',
         '   --escapeAnsibleRaw surrounds license with with {% raw %} ... {% endraw %}',
+        '   --encodeUtf8 encodes licenseText in utf8',
+        '   --addMarkdownBlock adds > to beginning of each line of licenseText',
         '',
         '   --version The current version',
         '   --help  The text you are reading right now :)',
